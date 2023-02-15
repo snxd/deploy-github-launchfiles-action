@@ -12,15 +12,15 @@ inputs:
   console_version:
     description: Version of Solsta Console Tools to use
     required: true
-    default: "6.1.2.51"
+    default: "6.1.2.84"
   scripts_version:
     description: Version of Solsta Deploy Scripts to use
     required: true
-    default: "3.7.24"
+    default: "3.7.30"
   target_product:
     description: Target product containing the environment (case-sensitive)
     required: true
-  target_env:
+  target_environment:
     description: Target environment for launch files (case-sensitive)
     required: true
   launch_file1:
@@ -75,16 +75,15 @@ runs:
     run: |
           # Build the launch files arguments
           SOLSTA_EXTRA=""
-          for i in 1 2 3 4 5 6 7 8 9 10 ; do
-            VARNAME=${{ iinputs.launch_file ))$i
-            eval SOLSTA_LAUNCH_ENTRY=${!VARNAME}
-            if ["$SOLSTA_LAUNCH_ENTRY" != "" ] ; then
+          for i in '${{ inputs.launch_file1 }}' '${{ inputs.launch_file2 }}' '${{ inputs.launch_file3 }}' '${{ inputs.launch_file4 }}' '${{ inputs.launch_file5 }}' '${{ inputs.launch_file6 }}' '${{ inputs.launch_file7 }}' '${{ inputs.launch_file8 }}' '${{ inputs.launch_file9 }}' '${{ inputs.launch_file10 }}' ; do
+            if [[ "$i" != "" ]] ; then
+                eval SOLSTA_LAUNCH_ENTRY=$i
                 SOLSTA_EXTRA="$SOLSTA_EXTRA --launch_name=\"${SOLSTA_LAUNCH_ENTRY[0]}\" --launch_executable=\"${SOLSTA_LAUNCH_ENTRY[1]}\" --launch_arguments=\"${SOLSTA_LAUNCH_ENTRY[2]}\" "
             fi
           done
           # Run the script that assigns the launch files to the environment
           echo extra = $SOLSTA_EXTRA
-          python manifest.py --debug_network --console_credentials=client_credentials.json --console_directory=solsta_console/${{ inputs.console_version }}/console/ --product_name="${{ inputs.target_product }}" --env_name="${{ inputs.target_env }}" $SOLSTA_EXTRA
+          eval "python manifest.py --debug_network --console_credentials=client_credentials.json --console_directory=solsta_console/${{ inputs.console_version }}/console/ --product_name=\"${{ inputs.target_product }}\" --env_name=\"${{ inputs.target_environment }}\" --object=launch --task=set $SOLSTA_EXTRA"
 
 branding:
   icon: "download-cloud"

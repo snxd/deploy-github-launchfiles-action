@@ -11,7 +11,7 @@ The action is compatible with Windows, Linux, and OSX runners.  Windows self-hos
 * **console_version:** Version of Solsta Console Tools to use
 * **scripts_version:** Version of Solsta Deploy Scripts to use
 * **target_product:** Target product to cleanup (case-sensitive)
-* **target_env:** Target environment for launch files (case-sensitive)
+* **target_environment:** Target environment for launch files (case-sensitive)
 * **launch_file1:** Up to 10 launch file entry names, paths, and arguments, format for each row is ("entry name" "path" "arg1 arg2 ...")
 
 ## Using
@@ -23,13 +23,14 @@ Here is an example YAML Fragment in the steps section of a build:
     - name: Launch Files CDN data for a Product and location
       uses: snxd/deploy-github-launchfiles-action@v2
       with:
-        console_version: '6.1.2.51'
+        console_version: '6.1.2.84'
+        scripts_version: '3.7.30'
         target_product: 'Emutil'
-        scripts_version: '3.7.24'
+        target_environment: 'Java'
         solsta_client_id:  ${{ secrets.SNXD_CLIENT_ID }}
         solsta_client_secret:  ${{ secrets.SNXD_CLIENT_SECRET }}
-        launch_files1: '("Entry Name 1" "/path/to/exec" "arg1 arg2 ...")'
-        launch_files2: '("Entry Name 2" "/path/to/exec" "arg1 arg2 ...")'
+        launch_file1: '("Entry Name 1" "/path/to/exec" "arg1 arg2 ...")'
+        launch_file2: '("Entry Name 2" "/path/to/exec" "arg1 arg2 ...")'
 ```
 
 ## License
