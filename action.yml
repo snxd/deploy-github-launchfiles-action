@@ -69,7 +69,7 @@ runs:
       console_version: ${{ inputs.console_version }}
       scripts_version: ${{ inputs.scripts_version }}
 
-  - name: Do Deploy
+  - name: Configure Launch Files
     shell: bash
     working-directory: solsta_work
     run: |

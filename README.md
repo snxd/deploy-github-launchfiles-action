@@ -20,7 +20,7 @@ Here is an example YAML Fragment in the steps section of a build:
 
 ```yaml
     steps:
-    - name: Launch Files CDN data for a Product and location
+    - name: Launch Files Configuration
       uses: snxd/deploy-github-launchfiles-action@v2
       with:
         console_version: '6.1.2.84'
