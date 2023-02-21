@@ -10,7 +10,7 @@ The action is compatible with Windows, Linux, and OSX runners.  Windows self-hos
 * **solsta_client_secret:** Secret Key to authenticate usage of Solid State Networks console tools
 * **console_version:** Version of Solsta Console Tools to use
 * **scripts_version:** Version of Solsta Deploy Scripts to use
-* **target_product:** Target product to cleanup (case-sensitive)
+* **target_product:** Target product for launch files (case-sensitive)
 * **target_environment:** Target environment for launch files (case-sensitive)
 * **launch_file1:** Up to 10 launch file entry names, paths, and arguments, format for each row is ("entry name" "path" "arg1 arg2 ...")
 
