@@ -27,8 +27,8 @@ Here is an example YAML Fragment in the steps section of a build:
         scripts_version: '3.7.30'
         target_product: 'Emutil'
         target_environment: 'Java'
-        solsta_client_id:  ${{ secrets.SNXD_CLIENT_ID }}
-        solsta_client_secret:  ${{ secrets.SNXD_CLIENT_SECRET }}
+        solsta_client_id:  ${{ secrets.SOLSTA_CLIENT_ID }}
+        solsta_client_secret:  ${{ secrets.SOLSTA_CLIENT_SECRET }}
         launch_file1: '("Entry Name 1" "/path/to/exec" "arg1 arg2 ...")'
         launch_file2: '("Entry Name 2" "/path/to/exec" "arg1 arg2 ...")'
 ```
