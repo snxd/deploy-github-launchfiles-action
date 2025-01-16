@@ -16,7 +16,7 @@ inputs:
   scripts_version:
     description: Version of Solsta Deploy Scripts to use
     required: true
-    default: "3.10.0"
+    default: "3.11.0"
   target_product:
     description: Target product containing the environment (case-sensitive)
     required: true
@@ -62,7 +62,7 @@ runs:
   using: 'composite'
   steps:
   - name: Solsta setup
-    uses: snxd/deploy-github-setup-action@v4
+    uses: snxd/deploy-github-setup-action@v5
     with:
       solsta_client_id: ${{ inputs.solsta_client_id }}
       solsta_client_secret: ${{ inputs.solsta_client_secret }}
