@@ -21,10 +21,10 @@ Here is an example YAML Fragment in the steps section of a build:
 ```yaml
     steps:
     - name: Launch Files Configuration
-      uses: snxd/deploy-github-launchfiles-action@v4
+      uses: snxd/deploy-github-launchfiles-action@v5
       with:
         console_version: '7.2.49'
-        scripts_version: '3.10.0'
+        scripts_version: '3.11.0'
         target_product: 'Emutil'
         target_environment: 'Java'
         solsta_client_id:  ${{ secrets.SOLSTA_CLIENT_ID }}
